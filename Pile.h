@@ -21,41 +21,55 @@ public:
   using const_reference = const value_type&;
 
 private:
-  pointer donnees;
+  pointer donnees; //INT* donnees
   size_t taille;
   const size_t CAPACITE;
 
 public:
-  Pile(size_t _capacite)
+  Pile(size_t _capacite) : CAPACITE(_capacite)
   // a completer
   {
     // a completer
+    donnees = new T[CAPACITE];
+    taille = 0;
   }
 
   ~Pile()
   {
     // a completer
+    delete[] donnees;
+    donnees = nullptr;
   }
 
-  Pile(const Pile& other)
+  Pile(const Pile& other) : CAPACITE(other.CAPACITE)
   // a completer
   {
     // a completer
+    donnees = new T[CAPACITE];
+    taille = 0;
+    for(size_t i = 0; i < other.taille; ++i){
+      donnees[i] = (other.donnees)[i];
+    }
+    taille = other.taille;
   }
 
   void empiler(const value_type& v)
   {
     // a completer
+    donnees[taille] = v;
+    ++taille;
   }
 
   void depiler()
   {
     // a completer
+    --taille;
   }
 
   const_reference sommet() const
   {
     // a completer
+    return donnees[taille-1];
   }
 
 };
