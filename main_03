@@ -1,0 +1,27 @@
+#include "Mouchard.h"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+   Int* p = (Int*) ::operator new(4 * sizeof (Int));
+   
+   //CODE AJOUTE
+   new (p) Int();
+   new (p+1) Int(5);
+   new (p+2) Int(*(p+1));
+   new(p+3) Int(std::move(*(p+2)));
+   
+   *p = *(p+3);
+   *(p+1) = std::move(*(p+3));
+   
+   (p+3)->~Int();
+   (p+2)->~Int();
+   (p+1)->~Int();
+   (p)->~Int();
+   
+   //FIN CODE AJOUTE
+   
+   ::operator delete(p);
+}
