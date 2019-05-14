@@ -27,24 +27,19 @@ private:
 
 public:
   Pile(size_t _capacite) : CAPACITE(_capacite)
-  // a completer
   {
-    // a completer
     donnees = new T[CAPACITE];
     taille = 0;
   }
 
   ~Pile()
   {
-    // a completer
     delete[] donnees;
     donnees = nullptr;
   }
 
   Pile(const Pile& other) : CAPACITE(other.CAPACITE)
-  // a completer
   {
-    // a completer
     donnees = new T[CAPACITE];
     taille = 0;
     for(size_t i = 0; i < other.taille; ++i){
@@ -55,21 +50,26 @@ public:
 
   void empiler(const value_type& v)
   {
-    // a completer
-    donnees[taille] = v;
-    ++taille;
+    if(taille != CAPACITE){
+      donnees[taille] = v;
+      ++taille;
+    }//pas de gestion d'erreur dans ce laboratoire
   }
 
   void depiler()
   {
-    // a completer
-    --taille;
+    if(taille!= 0)
+      --taille;
+    //pas de gestion d'erreur dans ce laboratoire
   }
 
   const_reference sommet() const
   {
-    // a completer
-    return donnees[taille-1];
+    if(taille != 0){
+      return donnees[taille-1];
+    }else{
+      return NULL; //retourne null si la pile est vide 
+    }
   }
 
 };
