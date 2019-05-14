@@ -1,3 +1,8 @@
+/**
+* Nom : Bourqui Denis, Delhomme Claire, Rieder Thomas
+* Labo06 Codecheck 1
+*/
+
 #include "Mouchard.h"
 
 using namespace std;
