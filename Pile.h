@@ -1,3 +1,8 @@
+/**
+* Nom: Bourqui Denis, Delhomme Claire, Rieder Thomas
+* Labo 06 Codecheck 4
+*/
+
 #ifndef Pile_hpp
 #define Pile_hpp
 
@@ -68,7 +73,7 @@ public:
     if(taille != 0){
       return donnees[taille-1];
     }else{
-      return NULL; //retourne null si la pile est vide 
+      return NULL; //retourne null si la pile est vide
     }
   }
 
